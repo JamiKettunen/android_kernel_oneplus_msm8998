@@ -520,9 +520,9 @@ static struct platform_driver msm_cpufreq_plat_driver = {
 static int get_available_cpufreq(bool c0)
 {
 	struct cpufreq_frequency_table *table, *pos;
-	int max_cpufreq_index, min_cpufreq_index;
-	int max_index;
-	int index_max, index_min;
+	int max_cpufreq_index = 0, min_cpufreq_index = 0;
+	int max_index = 0;
+	int index_max = 0, index_min = 0;
 	int cpu = c0 ? 0 : cluster1_first_cpu;
 
 	table = cpufreq_frequency_get_table(cpu);

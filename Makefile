@@ -362,7 +362,7 @@ CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
 CFLAGS_MODULE   =
 AFLAGS_MODULE   =
-LDFLAGS_MODULE  =
+LDFLAGS_MODULE  = --strip-debug
 CFLAGS_KERNEL	=
 AFLAGS_KERNEL	=
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage -fno-tree-loop-im
@@ -395,13 +395,19 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security \
 		   -std=gnu89 $(call cc-option,-fno-PIE)
 
-# Optimization for msm8998
-KBUILD_CFLAGS	+= -mcpu=cortex-a73.cortex-a53+crc+crypto -Wno-attribute-alias
+# Optimize build results for MSM8998 (Snapdragon 835)
+KBUILD_CFLAGS	+= -mcpu=cortex-a73.cortex-a53+crc+crypto
 
 # Kryo doesn't need 835769/843419 erratum fixes.
 # Some toolchains enable those fixes automatically, so opt-out.
 KBUILD_CFLAGS	+= $(call cc-option, -mno-fix-cortex-a53-835769)
 KBUILD_CFLAGS	+= $(call cc-option, -mno-fix-cortex-a53-843419)
+
+# Ignore some warnings from GCC
+KBUILD_CFLAGS	+= -Wno-memset-transposed-args -Wno-bool-compare -Wno-logical-not-parentheses \
+		   -Wno-discarded-array-qualifiers -Wno-unused-const-variable -Wno-array-bounds \
+		   -Wno-incompatible-pointer-types -Wno-misleading-indentation -Wno-tautological-compare \
+		   -Wno-error=misleading-indentation -Wno-attribute-alias
 
 ifeq ($(TARGET_BOARD_TYPE),auto)
 KBUILD_CFLAGS    += -DCONFIG_PLATFORM_AUTO

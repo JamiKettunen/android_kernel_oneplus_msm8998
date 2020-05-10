@@ -409,7 +409,11 @@ KBUILD_CFLAGS	+= -Wno-memset-transposed-args -Wno-bool-compare -Wno-logical-not-
 		   -Wno-stringop-overflow -Wno-format-overflow -Wno-maybe-uninitialized \
 		   -Wno-unused-variable -Wno-unused-function -Wno-unused-label -Wno-nonnull \
 		   -Wno-attributes -Wno-packed-not-aligned -Wno-error=sizeof-pointer-div \
-		   -Wno-sizeof-pointer-div -Wno-sizeof-pointer-memaccess -Wno-stringop-truncation
+		   -Wno-sizeof-pointer-div -Wno-sizeof-pointer-memaccess -Wno-stringop-truncation \
+		   -Wno-attribute-alias -Wno-psabi -Wno-address-of-packed-member
+
+# Perform vertorization on trees
+KBUILD_CFLAGS	+= -ftree-vectorize
 
 ifeq ($(TARGET_BOARD_TYPE),auto)
 KBUILD_CFLAGS    += -DCONFIG_PLATFORM_AUTO

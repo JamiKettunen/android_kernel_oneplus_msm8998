@@ -403,7 +403,10 @@ KBUILD_CFLAGS	+= $(call cc-option, -mno-fix-cortex-a53-843419)
 KBUILD_CFLAGS	+= -Wno-memset-transposed-args -Wno-bool-compare -Wno-logical-not-parentheses \
 		   -Wno-discarded-array-qualifiers -Wno-unused-const-variable -Wno-array-bounds \
 		   -Wno-incompatible-pointer-types -Wno-misleading-indentation -Wno-tautological-compare \
-		   -Wno-error=misleading-indentation -Wno-attribute-alias
+		   -Wno-error=misleading-indentation -Wno-attribute-alias -Wno-format-truncation \
+		   -Wno-duplicate-decl-specifier -Wno-memset-elt-size -Wno-bool-operation \
+		   -Wno-int-in-bool-context -Wno-parentheses -Wno-switch-unreachable \
+		   -Wno-stringop-overflow -Wno-format-overflow
 
 ifeq ($(TARGET_BOARD_TYPE),auto)
 KBUILD_CFLAGS    += -DCONFIG_PLATFORM_AUTO

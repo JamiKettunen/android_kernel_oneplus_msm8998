@@ -406,7 +406,10 @@ KBUILD_CFLAGS	+= -Wno-memset-transposed-args -Wno-bool-compare -Wno-logical-not-
 		   -Wno-error=misleading-indentation -Wno-attribute-alias -Wno-format-truncation \
 		   -Wno-duplicate-decl-specifier -Wno-memset-elt-size -Wno-bool-operation \
 		   -Wno-int-in-bool-context -Wno-parentheses -Wno-switch-unreachable \
-		   -Wno-stringop-overflow -Wno-format-overflow
+		   -Wno-stringop-overflow -Wno-format-overflow -Wno-maybe-uninitialized \
+		   -Wno-unused-variable -Wno-unused-function -Wno-unused-label -Wno-nonnull \
+		   -Wno-attributes -Wno-packed-not-aligned -Wno-error=sizeof-pointer-div \
+		   -Wno-sizeof-pointer-div -Wno-sizeof-pointer-memaccess -Wno-stringop-truncation
 
 ifeq ($(TARGET_BOARD_TYPE),auto)
 KBUILD_CFLAGS    += -DCONFIG_PLATFORM_AUTO

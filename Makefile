@@ -417,7 +417,8 @@ KBUILD_CFLAGS	+= -Wno-memset-transposed-args -Wno-bool-compare -Wno-logical-not-
 		   -Wno-unused-variable -Wno-unused-function -Wno-unused-label -Wno-nonnull \
 		   -Wno-attributes -Wno-packed-not-aligned -Wno-error=sizeof-pointer-div \
 		   -Wno-sizeof-pointer-div -Wno-sizeof-pointer-memaccess -Wno-stringop-truncation \
-		   -Wno-attribute-alias -Wno-psabi -Wno-address-of-packed-member
+		   -Wno-attribute-alias -Wno-psabi -Wno-address-of-packed-member \
+		   -Wno-builtin-declaration-mismatch -Wno-restrict
 
 # Perform vertorization on trees
 KBUILD_CFLAGS	+= -ftree-vectorize
